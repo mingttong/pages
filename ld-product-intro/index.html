@@ -26,7 +26,7 @@
             >
                 <div class="pro-title">{{ item.title }}</div>
                 <div class="pro-content">
-                    <img :src="item.content" :alt="item.title">
+                    <img :src="item.content" :alt="item.title" :style="`height: ${item.height}rem`">
                 </div>
             </div>
         </div>
@@ -55,15 +55,18 @@
             productList: [
                 {
                     title: '1、联道M1系列（岗位与部门级）',
-                    content: './img/m1.png'
+                    content: './img/m1.png',
+                    height: 10.53
                 },
                 {
                     title: '2、联道M3系列（中小企业）',
-                    content: './img/m3.png'
+                    content: './img/m3.png',
+                    height: 18.68
                 },
                 {
                     title: '3、联道M5系列（中大企业）',
-                    content: './img/m5.png'
+                    content: './img/m5.png',
+                    height: 20.84
                 }
             ],
             comments: [
