@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>产品介绍</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./vue.min.js"></script>
+</head>
+<body>
+    <div id="app" class="container">
+        <header class="title-box">
+            <h1>{{ title }}</h1>
+            <div class="sub-title">
+                <span class="liandaoyun">联道云</span>
+                <span class="oa">OA + 大财务 + ERP</span>
+            </div>
+            <img src="./img/bg.png" />
+        </header>
+        <div class="pro-list">
+            <div
+                class="pro-item"
+                v-for="item in productList"
+                :key="item.title"
+            >
+                <div class="pro-title">{{ item.title }}</div>
+                <div class="pro-content">
+                    <img :src="item.content" :alt="item.title">
+                </div>
+            </div>
+        </div>
+        <ul class="pro-comments">
+            <li v-for="(item, idx) in comments">
+                {{idx + 1}}、{{item}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var doc = document;
+    var docEl = doc.documentElement;
+    // 动态计算font-size
+    var clientW = window.innerWidth
+        || docEl.clientWidth
+        || doc.body.clientWidth;
+
+    var fontSize = (16 * clientW) / 375;
+    docEl.style.fontSize = fontSize + 'px';
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            title: '产品价格',
+            productList: [
+                {
+                    title: '1、联道M1系列（岗位与部门级）',
+                    content: './img/m1.png'
+                },
+                {
+                    title: '2、联道M3系列（中小企业）',
+                    content: './img/m3.png'
+                },
+                {
+                    title: '3、联道M5系列（中大企业）',
+                    content: './img/m5.png'
+                }
+            ],
+            comments: [
+                '不限制账套数量，不限制公司数。',
+                '报价仅为产品报价，实施、培训等费用另计。',
+                '用户数为注册用户数（指注册可以登录的用户数）。',
+                '促销价的有效期限为2019-12-31。'
+            ]
+        }
+    });
+</script>
+</html>
