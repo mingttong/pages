@@ -1,0 +1,114 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: Helvetica,arial,sans-serif;
+  background: #fff;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// 解决chrome最小字体限制
+* {
+  -webkit-text-size-adjust: none;
+}
+
+// 设置输入框默认样式
+input[type=text] {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  line-height: 1.5em;
+  width: 100%;
+}
+// 重写多选框样式
+input[type=checkbox] {
+  visibility: hidden;
+  margin-right: 5px;
+}
+input[type=checkbox]::before {
+  box-sizing: border-box;
+  content: '';
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border: 1px solid #888;
+  vertical-align: middle;
+  border-radius: 3px;
+  display: inline-block;
+  position: absolute;
+  visibility: visible;
+  top: 0;
+  left: 0;
+}
+input[type=checkbox]:checked::before {
+  border-color: #C00;/*绘制√*/
+}
+input[type=checkbox]:checked::after {
+  box-sizing: border-box;
+  visibility: visible;
+  content: "";
+  /*√大小*/
+  width: 10px;
+  height: 5px;
+  border-bottom: 1px solid #C00;
+  border-left: 1px solid #C00;
+  display: block;
+  position: absolute;
+  /*位置*/
+  top: 4px;
+  left: 3px;
+  transform: rotate(-45deg);
+}
+
+button {
+  border: none;
+  outline: none;
+}
+// 点击效果
+button:active {
+  position: relative;
+  top: 2px;
+}
+
+.ld-border {
+  position: relative;
+}
+.ld-border::after {
+  content: '';
+  background-color: #DDD;
+  position: absolute;
+  z-index: 999;
+}
+.ld-border.top::after {
+  width: 100%;
+  height: 1px;
+  top: 0px; right: 0px; left: 0px;
+  transform: scaleY(0.5);
+}
+.ld-border.bottom::after {
+  width: 100%;
+  height: 1px;
+  bottom: 0px; right: 0px; left: 0px;
+  transform: scaleY(0.5);
+}
+.ld-border.left::after {
+  width: 1px;
+  height: 100%;
+  top: 0px; bottom: 0px; left: 0px;
+  transform: scaleX(0.5);
+}
+.ld-border.right::after {
+  width: 1px;
+  height: 100%;
+  top: 0px; bottom: 0px; right: 0px;
+  transform: scaleX(0.5);
+}
